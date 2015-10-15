@@ -17,6 +17,10 @@ def mul(a, b):
   time.sleep(3)
   return a * b
 
+# we would like to perform the following
+# computation
+# (10 + 20) * (50 - 10) == 1200  [ans]
+
 # This is an example of how one would write
 # performant code
 def do_imperative():
