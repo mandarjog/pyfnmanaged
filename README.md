@@ -34,8 +34,12 @@ def do_declarative():
   d = sub(50, 10)
   ans = mul(c, d)
   return ans
-```
 
-do_declaritive is much more readable and you can concentrate on the business logic.
-The 'managed' can decide on the fly if a function should be executed sync, on a different thread
-or in a distributed way using celery or the likes.
+
+# do_declaritive is much more readable
+# you concentrate on the business logic.
+# This is a good way to inject much wanted
+# async behaviour
+# The 'managed' can decide on the fly if a function should be executed sync, on a different thread
+# or in a distributed way using celery or similar
+```
