@@ -40,8 +40,8 @@ def do_declarative():
 
 # do_declaritive is much more readable
 # you concentrate on the business logic.
-# This is a good way to inject much wanted
-# async behaviour
-# The 'managed' can decide on the fly if a function should be executed sync, on a different thread
-# or in a distributed way using celery or similar
+# This is a good way to inject async behaviour
+# The 'managed' decorator can decide on the fly if a function should 
+# be executed synchronously, on a different thread
+# or in a distributed way using celery
 ```
