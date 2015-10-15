@@ -1,11 +1,12 @@
 # pyfnmanaged
-managed python function
-
-This decorator shows how to inject management into a system.
-It is done by decorating a function with the @managed decorator
-It uses python concurrent.futures api
-
+managed python functions
 ```python
+
+# This decorator shows how to inject management into a system.
+# It is done by decorating a function with the @managed decorator
+# It uses python concurrent.futures api
+
+
 def add(a, b):
   time.sleep(1)
   return a + b
