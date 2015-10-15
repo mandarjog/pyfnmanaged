@@ -4,15 +4,17 @@
 # This decorator shows how to inject management into a system.
 # It is done by decorating a function with the @managed decorator
 # It uses python concurrent.futures api
-
+@fnmanaged.managed
 def add(a, b):
   time.sleep(1)
   return a + b
-
+  
+@fnmanaged.managed
 def sub(a, b):
   time.sleep(2)
   return a - b
   
+@fnmanaged.managed
 def mul(a, b):
   time.sleep(3)
   return a * b
@@ -23,6 +25,7 @@ def mul(a, b):
 
 # This is an example of how one would write
 # performant code
+# assume that we are using undecorated functions
 def do_imperative():
   c = executor.submit(add, 10, 20)
   d = executor.submit(sub, 50, 10)
