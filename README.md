@@ -1,11 +1,9 @@
 # pyfnmanaged
-managed python functions
+*managed python functions*
 ```python
-
 # This decorator shows how to inject management into a system.
 # It is done by decorating a function with the @managed decorator
 # It uses python concurrent.futures api
-
 
 def add(a, b):
   time.sleep(1)
@@ -14,7 +12,7 @@ def add(a, b):
 def sub(a, b):
   time.sleep(2)
   return a - b
-    
+  
 def mul(a, b):
   time.sleep(3)
   return a * b
@@ -35,7 +33,6 @@ def do_declarative():
   d = sub(50, 10)
   ans = mul(c, d)
   return ans
-
 
 # do_declaritive is much more readable
 # you concentrate on the business logic.
