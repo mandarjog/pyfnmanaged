@@ -3,7 +3,10 @@ from concurrent import futures
 from peak.util.proxies import LazyProxy
 import decorator
 
-g_executor = LazyProxy(lambda: futures.ThreadPoolExecutor(max_workers=4))
+g_executor = LazyProxy(lambda:
+                       futures.ThreadPoolExecutor(
+                           max_workers=int(
+                               os.environ.get("FN_MANAGED_WORKERS", 4))))
 
 
 """
@@ -22,7 +25,10 @@ def managed(fn, *args, **kwargs):
     if pw_async == "lazy":
         retval = LazyProxy(lambda: fn(*args, **kwargs))
     elif pw_async == "async":
-        future = g_executor.submit(fn, *args, **kwargs)
+        def _thread_exec(*args, **kwargs):
+            #TODO? add redirect stdout here
+            return fn(*args, **kwargs)
+        future = g_executor.submit(_thread_exec, *args, **kwargs)
         retval = LazyProxy(lambda: future.result())
     else:
         retval = fn(*args, **kwargs)
